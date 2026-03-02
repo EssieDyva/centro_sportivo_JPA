@@ -9,22 +9,17 @@ import org.springframework.transaction.annotation.Transactional;
 import com.betacom.jpa.dto.inputs.AttivitaReq;
 import com.betacom.jpa.dto.outputs.AbbonamentoDTO;
 import com.betacom.jpa.dto.outputs.AttivitaDTO;
-import com.betacom.jpa.services.implementations.AbbonamentoImpl;
 import com.betacom.jpa.services.interfaces.IAttivitaServices;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component
+@RequiredArgsConstructor
 public class ProcessAttivita {
 
-    private final AbbonamentoImpl abbonamentoImpl;
 	private final IAttivitaServices attS;
-
-	public ProcessAttivita(IAttivitaServices attS, AbbonamentoImpl abbonamentoImpl) {
-		this.attS = attS;
-		this.abbonamentoImpl = abbonamentoImpl;
-	}
 	
 	@Transactional (rollbackFor = Exception.class)
 	public void  createAttivita() throws Exception{

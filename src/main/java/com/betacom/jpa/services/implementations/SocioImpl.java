@@ -2,25 +2,17 @@ package com.betacom.jpa.services.implementations;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.betacom.jpa.dto.inputs.SocioReq;
-import com.betacom.jpa.dto.outputs.AbbonamentoDTO;
-import com.betacom.jpa.dto.outputs.AttivitaDTO;
-import com.betacom.jpa.dto.outputs.CertificatoDTO;
 import com.betacom.jpa.dto.outputs.SocioDTO;
 import com.betacom.jpa.exceptions.AcademyException;
-import com.betacom.jpa.models.Abbonamento;
-import com.betacom.jpa.models.Attivita;
 import com.betacom.jpa.models.Socio;
 import com.betacom.jpa.repositories.ISocioRepository;
 import com.betacom.jpa.services.interfaces.IMessagioServices;
 import com.betacom.jpa.services.interfaces.ISocioServices;
-
-import static com.betacom.jpa.utilities.Mapper.buildAbbonamentoDTO;
 import static com.betacom.jpa.utilities.Mapper.buildSocioDTO;
 
 import lombok.RequiredArgsConstructor;

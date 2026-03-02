@@ -1,11 +1,9 @@
 package com.betacom.jpa.socio;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.util.List;
 
-import org.assertj.core.api.Assert;
 import org.assertj.core.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -18,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import com.betacom.jpa.controllers.SocioController;
 import com.betacom.jpa.dto.inputs.SocioReq;
 import com.betacom.jpa.dto.outputs.SocioDTO;
-import com.betacom.jpa.models.Socio;
 import com.betacom.jpa.response.Resp;
 
 import lombok.RequiredArgsConstructor;
@@ -76,6 +73,7 @@ public class SocioControlerTest {
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	public void list() {
 		log.debug("Test list socio");
 		

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.betacom.jpa.dto.inputs.AttivitaReq;
-import com.betacom.jpa.dto.inputs.SocioReq;
 import com.betacom.jpa.response.Resp;
 import com.betacom.jpa.services.interfaces.IAttivitaServices;
 import com.betacom.jpa.services.interfaces.IMessagioServices;
@@ -101,7 +100,7 @@ public class AttivitaController {
 
 	@GetMapping("/list")
 	public ResponseEntity<Object> list(){
-		Object r = new Object();
+		Object r;
 		HttpStatus status = HttpStatus.OK;
 		try {
 			r= attS.list();

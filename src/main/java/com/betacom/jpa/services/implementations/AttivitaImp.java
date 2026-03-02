@@ -2,7 +2,6 @@ package com.betacom.jpa.services.implementations;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,7 +14,6 @@ import com.betacom.jpa.models.Attivita;
 import com.betacom.jpa.repositories.IAbbonamentoRepository;
 import com.betacom.jpa.repositories.IAttivitaRepository;
 import com.betacom.jpa.services.interfaces.IAttivitaServices;
-
 import static com.betacom.jpa.utilities.Mapper.buildAbbonamentoDTO;
 import static com.betacom.jpa.utilities.Mapper.buildAttivitaDTO;
 

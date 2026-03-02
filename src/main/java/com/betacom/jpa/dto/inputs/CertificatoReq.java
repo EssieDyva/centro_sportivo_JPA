@@ -1,7 +1,5 @@
 package com.betacom.jpa.dto.inputs;
 
-import java.time.LocalDate;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
