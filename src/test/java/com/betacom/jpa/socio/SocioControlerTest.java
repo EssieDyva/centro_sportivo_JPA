@@ -1,9 +1,10 @@
 package com.betacom.jpa.socio;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.List;
 
 import org.assertj.core.api.Assertions;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -49,6 +50,7 @@ public class SocioControlerTest {
 		SocioDTO soc = (SocioDTO)resp.getBody();
 		Assertions.assertThat(soc.getNome()).isEqualTo("Paolo");
 	}
+	
 	public void getSocioError() {
 		log.debug("Test getSocio error");
 		ResponseEntity<?> resp = socioC.findById(99);
@@ -97,7 +99,6 @@ public class SocioControlerTest {
 		req.setCognome("LaBrutta");
 		
 		ResponseEntity<Resp> resp = socioC.update(req);
-	
 		
 		assertEquals(HttpStatus.OK, resp.getStatusCode());
 		Resp r = (Resp)resp.getBody();

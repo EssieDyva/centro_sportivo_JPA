@@ -1,9 +1,10 @@
 package com.betacom.jpa.certificato;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.List;
 
 import org.assertj.core.api.Assertions;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -31,7 +32,7 @@ public class CertificatoControllerTest {
 	
 	@SuppressWarnings("unchecked")
 	@Test
-	@Order(1)	
+	@Order(10)	
 	public void myTest() {
 		createCertificato();
 		updateCertificato();
@@ -41,21 +42,17 @@ public class CertificatoControllerTest {
 	public void createCertificato() {
 
 		log.debug("Create certificato");
+		
 		CertificatoReq req = new CertificatoReq();
 		req.setTipo(false);
-		req.setDataCertificato("2026-01-15");
+		req.setDataCertificato("15/01/2025");
 		req.setSocioID(1);
 		
 		ResponseEntity<Resp> resp = certificatoC.create(req);
-		log.debug("Response status: " + resp.getStatusCode());
-		log.debug("Response body: " + resp.getBody());
+		assertEquals(HttpStatus.OK, resp.getStatusCode());
+		Resp r = (Resp)resp.getBody();
 		
-		if (resp.getStatusCode() == HttpStatus.OK) {
-			Resp r = (Resp)resp.getBody();
-			Assertions.assertThat(r.getMsg()).isEqualTo("rest_created");
-		} else if (resp.getStatusCode() == HttpStatus.BAD_REQUEST) {
-			log.warn("Certificato creation failed: " + resp.getBody());
-		}
+		Assertions.assertThat(r.getMsg()).isEqualTo("rest_created");
 		
 	}
 
@@ -79,7 +76,7 @@ public class CertificatoControllerTest {
 		CertificatoReq req = new CertificatoReq();
 		req.setId(1);
 		req.setTipo(true);
-		req.setDataCertificato("2026-03-10");
+		req.setDataCertificato("10/03/2026");
 		
 		ResponseEntity<Resp> resp = certificatoC.update(req);
 		log.debug("Update response status: " + resp.getStatusCode());
